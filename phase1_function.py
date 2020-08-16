@@ -29,7 +29,16 @@ class CRUD_operations:
             print ("{:<10} {:<10}".format(k["name"] , "Movie" if k["types"] == 1 else "TV"))
     
     def deleteRecord(self):
-        print("delete a record")
+        delRecord = input("Please mention the TV/Movie name : ")
+        lists = [x for x in self.showsList if x["name"] == delRecord]
+        if(len(lists) > 0):
+            print(str(len(lists)) +" Records Found")
+            for i in lists:
+                self.showsList.remove(i)
+            print("Records Deleted")
+        else:
+            print("No Records Found")
+
         
     def updateRecord(self):
         print("update a record")
@@ -38,7 +47,7 @@ class CRUD_operations:
         if os.path.isfile("files.json"):
             with open("files.json", "w") as openFile:
                 json.dump(self.showsList, openFile, indent=4)
-            print("File exists")
+                openFile.close()
         else:
             print("File not found, creating new one")
             with open("files.json", "w") as openFile:

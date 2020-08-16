@@ -25,6 +25,7 @@ def options():
         showsLists.dump()
     elif(selOpt == 3):
         print("Delete")
+        showsLists.deleteRecord()
         showsLists.dump()
     elif(selOpt == 4):
         showsLists.getRecords()
