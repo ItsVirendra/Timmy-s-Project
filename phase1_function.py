@@ -41,7 +41,15 @@ class CRUD_operations:
 
         
     def updateRecord(self):
-        print("update a record")
+        updateRecord = input("Please mention the TV/Movie name : ")
+        lists = [x for x in self.showsList if x["name"] == updateRecord]
+        if(len(lists) == 0):
+            print("No records found")
+        else:
+            replaceRecord = input("Mention the replaced name for selected one : ")
+            for k in self.showsList:
+                if(k["name"] == updateRecord):
+                    k["name"] = replaceRecord
         
     def dump(self):
         if os.path.isfile("files.json"):

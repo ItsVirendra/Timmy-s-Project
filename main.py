@@ -21,7 +21,7 @@ def options():
         showsLists.createNewShow()
         showsLists.dump()
     elif(selOpt == 2):
-        print("edit")
+        showsLists.updateRecord()
         showsLists.dump()
     elif(selOpt == 3):
         print("Delete")
